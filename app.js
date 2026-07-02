@@ -1,3 +1,11 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyBWqqE6-AXGtaR0Gk--x4aYQTwEEcZ2hVY",
+  authDomain: "prayer-room-c9232.firebaseapp.com",
+  projectId: "prayer-room-c9232",
+  storageBucket: "prayer-room-c9232.firebasestorage.app",
+  messagingSenderId: "637664120720",
+  appId: "1:637664120720:web:88df3f60aca44d2bdcad15"
+};
 const verses = [
   "L'Éternel est mon berger, je ne manquerai de rien.",
   "Tout est possible à celui qui croit.",
