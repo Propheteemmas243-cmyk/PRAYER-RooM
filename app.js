@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+// 🔥 Firebase config (UNE SEULE FOIS)
 const firebaseConfig = {
   apiKey: "AIzaSyBWqqE6-AXGtaR0Gk--x4aYQTwEEcZ2hVY",
   authDomain: "prayer-room-c9232.firebaseapp.com",
@@ -10,53 +11,37 @@ const firebaseConfig = {
   appId: "1:637664120720:web:88df3f60aca44d2bdcad15"
 };
 
+// Init Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const firebaseConfig = {
-  apiKey: "AIzaSyBWqqE6-AXGtaR0Gk--x4aYQTwEEcZ2hVY",
-  authDomain: "prayer-room-c9232.firebaseapp.com",
-  projectId: "prayer-room-c9232",
-  storageBucket: "prayer-room-c9232.firebasestorage.app",
-  messagingSenderId: "637664120720",
-  appId: "1:637664120720:web:88df3f60aca44d2bdcad15"
-};
-const verses = [
-  "L'Éternel est mon berger, je ne manquerai de rien.",
-  "Tout est possible à celui qui croit.",
-  "Dieu est amour.",
-  "Confie-toi en l'Éternel de tout ton cœur.",
-  "Le Seigneur est ma lumière et mon salut."
-];
 
-const prayers = [
-  "Seigneur, dirige ma journée et mes décisions.",
-  "Dieu, remplis-moi de paix et de sagesse.",
-  "Saint-Esprit, guide mes pas aujourd’hui.",
-  "Seigneur, garde mon cœur dans la foi.",
-  "Père, que ta volonté soit faite dans ma vie."
-];
-
-// Choisir un élément aléatoire
-function randomItem(list) {
-  return list[Math.floor(Math.random() * list.length)];
-}
-
-// Affichage verset + prière
-document.getElementById("verse").innerText = randomItem(verses);
-document.getElementById("prayer").innerText = randomItem(prayers);
-
-// LIVE
-function openLive() {
+// 🔴 LIVE BUTTON
+window.openLive = function () {
   window.open("https://youtube.com", "_blank");
-}
+};
 
-async function loadVerse() {
-  const docRef = doc(db, "content", "verse");
-  const docSnap = await getDoc(docRef);
+// 📖 Charger données Firestore
+async function loadContent() {
+  try {
+    const ref = doc(db, "content", "main");
+    const snap = await getDoc(ref);
 
-  if (docSnap.exists()) {
-    document.getElementById("verse").innerText = docSnap.data().text;
+    if (snap.exists()) {
+      const data = snap.data();
+
+      document.getElementById("verse").innerText =
+        data.verse || "Pas de verset";
+
+      document.getElementById("prayer").innerText =
+        data.prayer || "Pas de prière";
+
+      // Live dynamique plus tard
+    } else {
+      console.log("Aucune donnée trouvée dans Firestore");
+    }
+  } catch (error) {
+    console.error("Erreur Firestore:", error);
   }
 }
 
-loadVerse();
+loadContent();
