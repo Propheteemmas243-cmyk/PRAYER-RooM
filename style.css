@@ -1,18 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
   margin: 0;
-  font-family: Arial;
-  background: #0B0F1A;
+  font-family: 'Poppins', sans-serif;
+  background-image: url("https://images.unsplash.com/photo-1507692049790-de58290a4334");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.65);
+  min-height: 100vh;
 }
 
 header {
   text-align: center;
   padding: 20px;
-  background: #0A1025;
 }
 
 h1 {
   color: #F5C542;
+  margin: 0;
 }
 
 main {
@@ -20,7 +30,7 @@ main {
 }
 
 .card {
-  background: #121A2B;
+  background: rgba(18, 26, 43, 0.85);
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 16px;
@@ -29,13 +39,14 @@ main {
 button {
   background: #F5C542;
   border: none;
-  padding: 10px;
+  padding: 12px;
   border-radius: 10px;
   width: 100%;
+  font-weight: bold;
 }
 
 footer {
   text-align: center;
   padding: 15px;
-  opacity: 0.6;
+  opacity: 0.7;
 }
