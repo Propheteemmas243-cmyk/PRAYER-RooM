@@ -15,23 +15,35 @@ const db = getFirestore(app);
 
 const ref = doc(db, "app", "principal");
 
-// 🔥 UPDATE VERSET
+// 🔐 MOT DE PASSE SIMPLE
+const ADMIN_PASSWORD = "1234"; // tu peux changer
+
+window.checkPassword = function () {
+  const input = document.getElementById("password").value;
+
+  if (input === ADMIN_PASSWORD) {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("adminPanel").style.display = "block";
+  } else {
+    alert("Mot de passe incorrect ❌");
+  }
+};
+
+// 🔥 UPDATE
 window.updateVerset = async function () {
   const val = document.getElementById("versetInput").value;
   await updateDoc(ref, { verset: val });
-  alert("Verset mis à jour ✔️");
+  alert("OK ✔️");
 };
 
-// 🙏 UPDATE LOSAMBO
 window.updateLosambo = async function () {
   const val = document.getElementById("losamboInput").value;
   await updateDoc(ref, { losambo: val });
-  alert("Losambo mis à jour ✔️");
+  alert("OK ✔️");
 };
 
-// 🔴 UPDATE LIVE
 window.updateLive = async function () {
   const val = document.getElementById("liveInput").value;
   await updateDoc(ref, { live: val });
-  alert("Live mis à jour ✔️");
+  alert("OK ✔️");
 };
