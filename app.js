@@ -13,6 +13,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// 📡 CHARGER CONTENU
 async function chargerContenu() {
   try {
     const ref = doc(db, "app", "principal");
@@ -21,43 +22,52 @@ async function chargerContenu() {
     if (snap.exists()) {
       const data = snap.data();
 
-      // TEXTE
+      // 📖 contenu
       document.getElementById("verse").innerText = data.verset || "Aucun verset";
       document.getElementById("prayer").innerText = data.losambo || "Aucune prière";
 
-      // BACKGROUND
+      // 🎨 DESIGN DYNAMIQUE
       if (data.background) {
         document.body.style.backgroundImage = `url(${data.background})`;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
       }
 
-      // POLICE
       if (data.font) {
         document.body.style.fontFamily = data.font;
       }
 
-      // GLOBAL DATA
-      window.appData = data;
+      if (data.textColor) {
+        document.body.style.color = data.textColor;
+      }
 
+      // 🌐 GLOBAL DATA
+      window.appData = data;
     }
 
   } catch (error) {
-    console.error(error);
+    console.error("Erreur Firebase :", error);
   }
 }
 
 chargerContenu();
 
-// LIVE
+// 🔴 LIVE
 window.openLive = function () {
   window.open(window.appData?.live || "https://youtube.com", "_blank");
 };
 
-// LIVRE
-window.openBook = function () {
-  window.open(window.appData?.livre || "#", "_blank");
+// 📝 REQUÊTES
+window.openRequest = function () {
+  window.location.href = "requests.html";
 };
 
-// SOUTIEN
+// 📚 LIVRE
+window.openBook = function () {
+  window.location.href = "book.html";
+};
+
+// 💰 SOUTIEN
 window.openSupport = function () {
-  window.open(window.appData?.soutien || "#", "_blank");
+  window.location.href = "support.html";
 };
