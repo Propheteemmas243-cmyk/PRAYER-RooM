@@ -21,26 +21,43 @@ async function chargerContenu() {
     if (snap.exists()) {
       const data = snap.data();
 
-      document.getElementById("verse").innerText =
-        data.verset || "Aucun verset";
+      // TEXTE
+      document.getElementById("verse").innerText = data.verset || "Aucun verset";
+      document.getElementById("prayer").innerText = data.losambo || "Aucune prière";
 
-      document.getElementById("prayer").innerText =
-        data.losambo || "Aucune prière";
+      // BACKGROUND
+      if (data.background) {
+        document.body.style.backgroundImage = `url(${data.background})`;
+      }
 
-    } else {
-      document.getElementById("verse").innerText = "Document introuvable";
-      document.getElementById("prayer").innerText = "Document introuvable";
+      // POLICE
+      if (data.font) {
+        document.body.style.fontFamily = data.font;
+      }
+
+      // GLOBAL DATA
+      window.appData = data;
+
     }
 
   } catch (error) {
     console.error(error);
-    document.getElementById("verse").innerText = "Erreur";
-    document.getElementById("prayer").innerText = "Erreur";
   }
 }
 
 chargerContenu();
 
+// LIVE
 window.openLive = function () {
-  window.open("https://youtube.com", "_blank");
+  window.open(window.appData?.live || "https://youtube.com", "_blank");
+};
+
+// LIVRE
+window.openBook = function () {
+  window.open(window.appData?.livre || "#", "_blank");
+};
+
+// SOUTIEN
+window.openSupport = function () {
+  window.open(window.appData?.soutien || "#", "_blank");
 };
