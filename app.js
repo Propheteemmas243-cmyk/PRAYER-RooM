@@ -28,7 +28,8 @@ async function chargerContenu() {
         data.verset || "Aucun verset";
 
       document.getElementById("prayer").innerText =
-        data.priere || "Aucune prière";
+        data.losambo || "Aucune prière";
+
     } else {
       document.getElementById("verse").innerText = "Document introuvable";
       document.getElementById("prayer").innerText = "Document introuvable";
