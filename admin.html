@@ -2,33 +2,35 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Prayer Room</title>
+  <title>Admin Login</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>⚙️ ADMIN PRAYER ROOM</h1>
+  <h1>🔐 ADMIN LOGIN</h1>
 </header>
 
 <main>
 
-  <section class="card">
-    <h2>📖 Verset</h2>
-    <input id="versetInput" placeholder="Modifier verset">
-    <button onclick="updateVerset()">Enregistrer</button>
+  <section class="card" id="loginBox">
+    <h2>Mot de passe admin</h2>
+    <input type="password" id="password" placeholder="Entrer le mot de passe">
+    <button onclick="checkPassword()">Connexion</button>
   </section>
 
-  <section class="card">
-    <h2>🙏 Losambo</h2>
-    <input id="losamboInput" placeholder="Modifier prière">
-    <button onclick="updateLosambo()">Enregistrer</button>
-  </section>
+  <section class="card" id="adminPanel" style="display:none;">
+    <h2>⚙️ ADMIN PANEL</h2>
 
-  <section class="card">
-    <h2>🔴 Live</h2>
-    <input id="liveInput" placeholder="Lien live">
-    <button onclick="updateLive()">Enregistrer</button>
+    <input id="versetInput" placeholder="Verset">
+    <button onclick="updateVerset()">Enregistrer verset</button>
+
+    <input id="losamboInput" placeholder="Losambo">
+    <button onclick="updateLosambo()">Enregistrer losambo</button>
+
+    <input id="liveInput" placeholder="Live">
+    <button onclick="updateLive()">Enregistrer live</button>
+
   </section>
 
 </main>
