@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prayer RooM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>PRAYER RooM</h1>
+  <p>Daily Word • Prayer • Live</p>
+</header>
+
 <main>
 
   <section class="card">
@@ -6,28 +22,38 @@
   </section>
 
   <section class="card">
-    <h2>🙏 Losambo</h2>
+    <h2>🙏 Prière du jour</h2>
     <p id="prayer">Chargement...</p>
   </section>
 
-  <section class="card">
+  <section class="card live">
     <h2>🔴 Live</h2>
-    <button onclick="openLive()">Rejoindre le live</button>
+    <button id="liveBtn" onclick="openLive()">Rejoindre le live</button>
   </section>
 
   <section class="card">
-    <h2>📝 Envoyez vos requêtes</h2>
-    <button onclick="openRequest()">Envoyer une requête</button>
+    <h2>📝 Requêtes de prière</h2>
+    <button>Envoyer une requête</button>
   </section>
 
   <section class="card">
-    <h2>📚 Espace Livre</h2>
-    <button onclick="openBook()">Voir le livre</button>
+    <h2>📚 Livre</h2>
+    <button>Voir le livre</button>
   </section>
 
   <section class="card">
-    <h2>💰 Soutenir le ministère</h2>
-    <button onclick="openSupport()">Soutenir</button>
+    <h2>💰 Soutien</h2>
+    <button>Soutenir le ministère</button>
   </section>
 
 </main>
+
+<footer>
+  <p>Prayer RooM © 2026</p>
+</footer>
+
+<!-- Firebase logic -->
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
