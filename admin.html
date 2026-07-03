@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Prayer Room</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>⚙️ ADMIN PRAYER ROOM</h1>
+</header>
+
+<main>
+
+  <section class="card">
+    <h2>📖 Verset</h2>
+    <input id="versetInput" placeholder="Modifier verset">
+    <button onclick="updateVerset()">Enregistrer</button>
+  </section>
+
+  <section class="card">
+    <h2>🙏 Losambo</h2>
+    <input id="losamboInput" placeholder="Modifier prière">
+    <button onclick="updateLosambo()">Enregistrer</button>
+  </section>
+
+  <section class="card">
+    <h2>🔴 Live</h2>
+    <input id="liveInput" placeholder="Lien live">
+    <button onclick="updateLive()">Enregistrer</button>
+  </section>
+
+</main>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+</html>
