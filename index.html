@@ -16,34 +16,40 @@
 
 <main>
 
+  <!-- 📖 VERSET -->
   <section class="card">
     <h2>📖 Verset du jour</h2>
     <p id="verse">Chargement...</p>
   </section>
 
+  <!-- 🙏 LOSAMBO -->
   <section class="card">
-    <h2>🙏 LOSAMBO</h2>
+    <h2>🙏 Losambo</h2>
     <p id="prayer">Chargement...</p>
   </section>
 
-  <section class="card live">
+  <!-- 🔴 LIVE -->
+  <section class="card">
     <h2>🔴 Live</h2>
     <button onclick="openLive()">Rejoindre le live</button>
   </section>
 
+  <!-- 📝 REQUEST -->
   <section class="card">
     <h2>📝 Requêtes de prière</h2>
-    <button>Envoyer une requête</button>
+    <button onclick="openRequest()">Envoyer une requête</button>
   </section>
 
+  <!-- 📚 BOOK -->
   <section class="card">
     <h2>📚 Espace Livre</h2>
-    <button>Voir le livre</button>
+    <button onclick="openBook()">Lire le livre</button>
   </section>
 
+  <!-- 💰 SUPPORT -->
   <section class="card">
     <h2>💰 Soutenir le ministère</h2>
-    <button>Soutenir</button>
+    <button onclick="openSupport()">Soutenir</button>
   </section>
 
 </main>
@@ -56,11 +62,3 @@
 
 </body>
 </html>
-
-<section class="card">
-  <h2>⚙️ Admin Actions</h2>
-
-  <button onclick="openLive()">Live</button>
-  <button onclick="openBook()">Livre</button>
-  <button onclick="openSupport()">Soutien</button>
-</section>
